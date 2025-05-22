@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Send, Upload, X } from 'lucide-react';
@@ -63,13 +62,30 @@ const NewMessage = () => {
     
     setIsSubmitting(true);
     
-    // Simulando envio para um backend
+    // Criar o objeto de mensagem
+    const newMessage = {
+      id: `msg_${Date.now()}`,
+      name: name.trim(),
+      message: message.trim(),
+      emoji: selectedEmoji || undefined,
+      imageUrl: imagePreview || undefined,
+      audioUrl: audioPreview || undefined,
+      likesCount: 0,
+      timestamp: Date.now()
+    };
+    
+    // Salvar a mensagem no localStorage
+    const existingMessages = localStorage.getItem('birthdayMessages');
+    const messages = existingMessages ? JSON.parse(existingMessages) : [];
+    messages.unshift(newMessage); // Adicionar no início para ficar mais recente
+    
+    localStorage.setItem('birthdayMessages', JSON.stringify(messages));
+    
     setTimeout(() => {
-      // Em um cenário real, enviaríamos os dados para o backend aqui
       setIsSubmitting(false);
       toast.success('Mensagem enviada com sucesso!');
       navigate('/mensagem-enviada');
-    }, 1500);
+    }, 800);
   };
 
   return (

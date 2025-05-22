@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart } from 'lucide-react';
 
 interface MessageCardProps {
@@ -26,9 +26,22 @@ const MessageCard = ({
 
   const handleLike = () => {
     if (!liked) {
+      const newLikes = likes + 1;
       setLiked(true);
-      setLikes(likes + 1);
-      // Em uma implementação real, enviaríamos esta informação para o backend
+      setLikes(newLikes);
+      
+      // Atualizar likes no localStorage
+      const storedMessages = localStorage.getItem('birthdayMessages');
+      if (storedMessages) {
+        const messages = JSON.parse(storedMessages);
+        const updatedMessages = messages.map((msg: any) => {
+          if (msg.id === id) {
+            return { ...msg, likesCount: newLikes };
+          }
+          return msg;
+        });
+        localStorage.setItem('birthdayMessages', JSON.stringify(updatedMessages));
+      }
     }
   };
 

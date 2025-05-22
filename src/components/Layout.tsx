@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PartyPopper, Cake, Heart, MessageSquare } from 'lucide-react';
+import { PartyPopper, Cake, Heart, MessageSquare, Shield } from 'lucide-react';
 import Confetti from './animations/Confetti';
 import Balloons from './animations/Balloons';
 
@@ -41,6 +41,10 @@ const Layout = ({ children, withAnimations = true }: LayoutProps) => {
                 <Heart className="h-4 w-4" />
                 <span>Mural</span>
               </Link>
+              <Link to="/admin" className="flex items-center gap-1 text-festive-purple hover:text-festive-gold transition-colors">
+                <Shield className="h-4 w-4" />
+                <span>Administração</span>
+              </Link>
             </nav>
             
             <div className="md:hidden">
@@ -64,6 +68,9 @@ const Layout = ({ children, withAnimations = true }: LayoutProps) => {
             <a href="https://wa.me/?text=Deixe%20uma%20mensagem%20de%20aniversário%20especial!" className="text-festive-blue hover:text-festive-gold transition-colors text-sm">
               Compartilhar no WhatsApp
             </a>
+            <Link to="/admin" className="text-festive-purple hover:text-festive-gold transition-colors text-sm">
+              Administração
+            </Link>
           </div>
         </div>
       </footer>

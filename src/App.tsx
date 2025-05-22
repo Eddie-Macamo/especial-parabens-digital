@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import NewMessage from "./pages/NewMessage";
 import MessageSent from "./pages/MessageSent";
 import MessageWall from "./pages/MessageWall";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/nova-mensagem" element={<NewMessage />} />
           <Route path="/mensagem-enviada" element={<MessageSent />} />
           <Route path="/mural" element={<MessageWall />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

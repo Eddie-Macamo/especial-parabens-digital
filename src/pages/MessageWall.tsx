@@ -1,70 +1,79 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Star } from 'lucide-react';
 import Layout from '../components/Layout';
 import MessageCard from '../components/MessageCard';
 
-const MessageWall = () => {
-  // Em um cenário real, estes dados viriam de um backend
-  const dummyMessages = [
-    {
-      id: '1',
-      name: 'João Silva',
-      message: 'Feliz aniversário! Desejo a você muita saúde, paz e felicidade. Que todos os seus sonhos se realizem!',
-      emoji: '🎂',
-      imageUrl: '/placeholder.svg',
-      likesCount: 5
-    },
-    {
-      id: '2',
-      name: 'Maria Oliveira',
-      message: 'Parabéns pelo seu dia! Que este novo ciclo seja repleto de conquistas e alegrias. Você merece o mundo!',
-      emoji: '✨',
-      likesCount: 3
-    },
-    {
-      id: '3',
-      name: 'Pedro Santos',
-      message: 'Feliz aniversário, amigo! Que Deus continue abençoando sua vida com muita paz e sabedoria.',
-      emoji: '🙏',
-      likesCount: 7
-    },
-    {
-      id: '4',
-      name: 'Ana Ferreira',
-      message: 'Parabéns! Que este dia seja tão especial quanto você é. Continue sendo essa pessoa incrível!',
-      emoji: '❤️',
-      imageUrl: '/placeholder.svg',
-      likesCount: 10
-    },
-    {
-      id: '5',
-      name: 'Carlos Pereira',
-      message: 'Feliz aniversário! Que não faltem saúde, amor e prosperidade em sua vida. Conte sempre comigo!',
-      emoji: '🎁',
-      likesCount: 2
-    },
-    {
-      id: '6',
-      name: 'Luísa Mendes',
-      message: 'Parabéns pelo seu dia! Desejo que sua vida seja sempre iluminada e cheia de momentos inesquecíveis.',
-      emoji: '🎉',
-      likesCount: 8
-    }
-  ];
+interface Message {
+  id: string;
+  name: string;
+  message: string;
+  emoji?: string;
+  imageUrl?: string;
+  audioUrl?: string;
+  likesCount: number;
+  timestamp: number;
+}
 
+const MessageWall = () => {
   const [filter, setFilter] = useState('recent');
-  const [messages, setMessages] = useState(dummyMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  useEffect(() => {
+    // Carregar mensagens do localStorage
+    const storedMessages = localStorage.getItem('birthdayMessages');
+    if (storedMessages) {
+      setMessages(JSON.parse(storedMessages));
+    } else {
+      // Dados de exemplo apenas para demonstração inicial
+      const dummyMessages = [
+        {
+          id: '1',
+          name: 'João Silva',
+          message: 'Feliz aniversário! Desejo a você muita saúde, paz e felicidade. Que todos os seus sonhos se realizem!',
+          emoji: '🎂',
+          imageUrl: '/placeholder.svg',
+          likesCount: 5,
+          timestamp: Date.now() - 86400000
+        },
+        {
+          id: '2',
+          name: 'Maria Oliveira',
+          message: 'Parabéns pelo seu dia! Que este novo ciclo seja repleto de conquistas e alegrias. Você merece o mundo!',
+          emoji: '✨',
+          likesCount: 3,
+          timestamp: Date.now() - 43200000
+        },
+        {
+          id: '3',
+          name: 'Pedro Santos',
+          message: 'Feliz aniversário, amigo! Que Deus continue abençoando sua vida com muita paz e sabedoria.',
+          emoji: '🙏',
+          likesCount: 7,
+          timestamp: Date.now() - 21600000
+        }
+      ];
+      
+      localStorage.setItem('birthdayMessages', JSON.stringify(dummyMessages));
+      setMessages(dummyMessages);
+    }
+  }, []);
 
   const handleFilterChange = (newFilter: string) => {
     setFilter(newFilter);
     
+    const storedMessages = localStorage.getItem('birthdayMessages');
+    if (!storedMessages) return;
+    
+    const currentMessages = JSON.parse(storedMessages);
+    
     if (newFilter === 'recent') {
-      // Em um cenário real, faríamos uma nova requisição ou ordenação adequada
-      setMessages([...dummyMessages]);
+      // Ordenar por data mais recente
+      const sortedMessages = [...currentMessages].sort((a, b) => b.timestamp - a.timestamp);
+      setMessages(sortedMessages);
     } else if (newFilter === 'popular') {
       // Ordenar por número de curtidas
-      const sortedMessages = [...dummyMessages].sort((a, b) => (b.likesCount || 0) - (a.likesCount || 0));
+      const sortedMessages = [...currentMessages].sort((a, b) => (b.likesCount || 0) - (a.likesCount || 0));
       setMessages(sortedMessages);
     }
   };
@@ -118,6 +127,7 @@ const MessageWall = () => {
               message={message.message}
               emoji={message.emoji}
               imageUrl={message.imageUrl}
+              audioUrl={message.audioUrl}
               likesCount={message.likesCount}
             />
           ))}

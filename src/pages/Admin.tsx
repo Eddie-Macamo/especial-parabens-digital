@@ -96,7 +96,7 @@ const Admin = () => {
                 className="w-full"
                 required
               />
-              <p className="text-xs text-gray-500 mt-1">Use a senha: 123456 (apenas para demonstração)</p>
+              <p className="text-xs text-gray-500 mt-1">Use a senha: ****** (apenas para demonstração)</p>
             </div>
             
             <Button 

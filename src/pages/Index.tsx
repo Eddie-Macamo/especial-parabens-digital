@@ -15,7 +15,7 @@ const Index = () => {
       <div className="max-w-4xl mx-auto py-12">
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-festive-navy mb-4 font-festive">
-            <span className="gold-gradient">Homenagem Executiva</span>
+            <span className="gold-gradient">Feliz Aniversário</span>
           </h1>
           <p className="text-xl text-festive-charcoal mb-6 font-executive">
             Uma celebração especial para um líder extraordinário
@@ -25,13 +25,13 @@ const Index = () => {
         <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-xl border border-festive-gold/30 p-8 md:p-10 mb-16 luxury-card">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3">
-              <div className="rounded-full border-4 border-festive-gold shadow-lg p-1 bg-gradient-to-r from-festive-gold/20 to-festive-gold/10 mx-auto">
-                <img
-                  src={birthdayImage}
-                  alt={birthdayPersonName}
-                  className="rounded-full w-48 h-48 object-cover"
-                />
-              </div>
+              <div className="w-70 h-56 rounded-xl border-4 border-festive-gold shadow-xl p-1 bg-gradient-to-br from-festive-gold/20 to-festive-gold/10 mx-auto overflow-hidden">
+  <img
+    src="img/Carlos.jpg.jpg"
+    alt={birthdayPersonName}
+    className="w-full h-full object-cover object-center rounded-lg"
+  />
+</div>
             </div>
             
             <div className="w-full md:w-2/3 text-center md:text-left">
@@ -39,10 +39,10 @@ const Index = () => {
                 <span className="gold-gradient">Carlos Macamo</span>
               </h2>
               <p className="text-festive-accent font-semibold mb-2 text-lg">
-                Visionário. Líder. Inspiração.
+                Pai. Visionário. Líder. Inspiração.
               </p>
               <p className="text-festive-charcoal mb-8 font-executive">
-                Compartilhe suas palavras de admiração e reconhecimento para celebrar a trajetória de sucesso de um verdadeiro líder.
+                Compartilhe suas palavras de admiração e reconhecimento para celebrar o aniversário de um verdadeiro líder.
               </p>
               
               <Button asChild className="luxury-button text-festive-navy font-bold text-lg py-6 px-8 rounded-md shadow-md">
@@ -64,7 +64,7 @@ const Index = () => {
             <span className="gold-gradient">Uma Jornada de Excelência</span>
           </h2>
           <p className="text-festive-charcoal mb-6 font-executive">
-            Sua mensagem será preservada em um elegante mural digital, como um tributo duradouro às conquistas e ao legado de Carlos Macamo.
+            Sua mensagem será preservada em um elegante mural digital, como um tributo duradouro a vida e ao legado de Carlos Macamo.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -83,9 +83,10 @@ const Index = () => {
             <h3 className="text-xl font-bold text-festive-navy font-festive">Excelência Reconhecida</h3>
           </div>
           <p className="text-festive-charcoal max-w-2xl mx-auto font-executive">
-            Carlos Macamo representa a personificação da liderança visionária e da excelência empresarial. 
-            Seu compromisso com a inovação e sua capacidade de inspirar aqueles ao seu redor o estabeleceram 
-            como uma figura respeitada no mundo dos negócios.
+            🎉 Feliz Aniversário, Carlos Macamo.
+              Celebramos hoje mais um ano de uma liderança que inspira, inova e transforma. 
+              Sua vida e compromisso com a excelência continuam a marcar positivamente 
+              nossas vidas. Desejamos-lhe contínuo sucesso, saúde e prosperidade.
           </p>
         </div>
       </div>

@@ -26,11 +26,14 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				festive: {
-					blue: '#87CEEB',    // Azul claro
-					gold: '#FFD700',    // Dourado
-					white: '#FFFFFF',   // Branco
-					purple: '#C8A2C8',  // Lilás
-					light: '#F0F8FF',   // Azul muito claro para backgrounds
+					gold: '#D4AF37',      // Ouro mais rico
+					navy: '#0C1B33',      // Azul marinho escuro
+					silver: '#E8E8E8',    // Prata elegante
+					charcoal: '#36454F',  // Carvão sofisticado
+					cream: '#FFFDD0',     // Creme suave
+					black: '#000000',     // Preto puro
+					white: '#FFFFFF',     // Branco puro
+					accent: '#8A7B45'     // Dourado envelhecido
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -108,6 +111,10 @@ export default {
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(10px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'shine': {
+					'0%': { backgroundPosition: '200% 0' },
+					'100%': { backgroundPosition: '-200% 0' }
 				}
 			},
 			animation: {
@@ -116,10 +123,12 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'confetti-fall': 'confetti-fall 4s ease-in-out forwards',
 				'pulse-scale': 'pulse-scale 2s ease-in-out infinite',
-				'fade-in': 'fade-in 0.5s ease-out'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'shine': 'shine 3s linear infinite'
 			},
 			fontFamily: {
-				'festive': ['"Paytone One"', 'sans-serif']
+				'festive': ['Playfair Display', 'serif'],
+				'executive': ['Montserrat', 'sans-serif']
 			}
 		}
 	},

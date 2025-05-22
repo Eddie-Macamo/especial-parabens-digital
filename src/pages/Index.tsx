@@ -1,50 +1,54 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Send } from 'lucide-react';
+import { MessageSquare, Award } from 'lucide-react';
 import Layout from '../components/Layout';
 import CountdownTimer from '../components/CountdownTimer';
 import { Button } from '../components/ui/button';
 
 const Index = () => {
-  // Em um cenário real, esses dados viriam de um backend
-  const birthdayPersonName = "Maria Silva";
+  const birthdayPersonName = "Carlos Macamo";
   const birthdayImage = "/placeholder.svg"; // Imagem placeholder temporária
 
   return (
-    <Layout withAnimations={true}>
-      <div className="max-w-4xl mx-auto py-8">
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold text-festive-purple mb-4">
-            Parabéns Especial
+    <Layout>
+      <div className="max-w-4xl mx-auto py-12">
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-bold text-festive-navy mb-4 font-festive">
+            <span className="gold-gradient">Homenagem Executiva</span>
           </h1>
-          <p className="text-xl text-festive-blue mb-6">
-            Celebre esse momento especial compartilhando sua mensagem!
+          <p className="text-xl text-festive-charcoal mb-6 font-executive">
+            Uma celebração especial para um líder extraordinário
           </p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl border border-festive-gold/30 p-6 md:p-8 mb-12">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-xl border border-festive-gold/30 p-8 md:p-10 mb-16 luxury-card">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3">
-              <img
-                src={birthdayImage}
-                alt={birthdayPersonName}
-                className="rounded-full border-4 border-festive-purple/50 shadow-lg w-48 h-48 object-cover mx-auto animate-pulse-scale"
-              />
+              <div className="rounded-full border-4 border-festive-gold shadow-lg p-1 bg-gradient-to-r from-festive-gold/20 to-festive-gold/10 mx-auto">
+                <img
+                  src={birthdayImage}
+                  alt={birthdayPersonName}
+                  className="rounded-full w-48 h-48 object-cover"
+                />
+              </div>
             </div>
             
             <div className="w-full md:w-2/3 text-center md:text-left">
-              <h2 className="text-3xl font-bold text-festive-blue mb-3">
-                Feliz aniversário, {birthdayPersonName}!
+              <h2 className="text-3xl font-bold text-festive-navy mb-3 font-festive">
+                <span className="gold-gradient">Carlos Macamo</span>
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                Deixe uma mensagem de carinho e faça parte desse momento especial!
+              <p className="text-festive-accent font-semibold mb-2 text-lg">
+                Visionário. Líder. Inspiração.
+              </p>
+              <p className="text-festive-charcoal mb-8 font-executive">
+                Compartilhe suas palavras de admiração e reconhecimento para celebrar a trajetória de sucesso de um verdadeiro líder.
               </p>
               
-              <Button asChild className="bg-festive-gold hover:bg-festive-gold/80 text-white font-bold text-lg py-6 px-8 rounded-full shadow-md transition-all hover:shadow-lg hover:scale-105">
+              <Button asChild className="luxury-button text-festive-navy font-bold text-lg py-6 px-8 rounded-md shadow-md">
                 <Link to="/nova-mensagem" className="flex items-center gap-2">
-                  <Send className="h-5 w-5" />
-                  <span>Enviar Mensagem</span>
+                  <MessageSquare className="h-5 w-5" />
+                  <span className="font-executive">Enviar Mensagem</span>
                 </Link>
               </Button>
             </div>
@@ -56,21 +60,33 @@ const Index = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold text-festive-purple mb-4">
-            Não perca a oportunidade de expressar seu carinho!
+          <h2 className="text-2xl font-bold text-festive-navy mb-4 font-festive">
+            <span className="gold-gradient">Uma Jornada de Excelência</span>
           </h2>
-          <p className="text-gray-700 mb-6">
-            Sua mensagem ficará guardada no mural especial e o aniversariante poderá rever sempre que quiser.
+          <p className="text-festive-charcoal mb-6 font-executive">
+            Sua mensagem será preservada em um elegante mural digital, como um tributo duradouro às conquistas e ao legado de Carlos Macamo.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/nova-mensagem" className="bg-festive-blue hover:bg-festive-blue/80 text-white px-6 py-3 rounded-md shadow transition-colors">
+            <Link to="/nova-mensagem" className="luxury-button text-festive-navy px-6 py-3 rounded-md shadow font-executive">
               Escrever Mensagem
             </Link>
-            <Link to="/mural" className="bg-festive-purple hover:bg-festive-purple/80 text-white px-6 py-3 rounded-md shadow transition-colors">
+            <Link to="/mural" className="bg-festive-navy hover:bg-festive-navy/80 text-white px-6 py-3 rounded-md shadow transition-colors font-executive">
               Ver Mural de Mensagens
             </Link>
           </div>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-festive-gold/20 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Award className="h-6 w-6 text-festive-gold" />
+            <h3 className="text-xl font-bold text-festive-navy font-festive">Excelência Reconhecida</h3>
+          </div>
+          <p className="text-festive-charcoal max-w-2xl mx-auto font-executive">
+            Carlos Macamo representa a personificação da liderança visionária e da excelência empresarial. 
+            Seu compromisso com a inovação e sua capacidade de inspirar aqueles ao seu redor o estabeleceram 
+            como uma figura respeitada no mundo dos negócios.
+          </p>
         </div>
       </div>
     </Layout>
